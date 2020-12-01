@@ -1,0 +1,60 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  /**
+  * Modo Claro
+  */
+  --color-tomb: yellow;
+  --color-tomb-alt: orange;
+  --color-tomb-transp: rgba(255, 255, 0, 0.5);
+  --color-tomb-alt-transp: rgb(255, 166, 0, 0.5);
+
+
+  /**
+  * Modo Oscuro
+  */
+  /* --color-tomb-dark: rgb(235, 0, 0);
+  --color-tomb-alt-dark: rgb(184, 0, 0);
+  --color-tomb-dark-transp: rgb(235, 0, 0, 0.5);
+  --color-tomb-alt-dark-transp: rgb(184, 0, 0, 0.5); */
+  --color-tomb-dark:rgb(121, 25, 231);
+  --color-tomb-alt-dark:rgb(88, 17, 170);
+  --color-tomb-dark-transp:rgb(121, 25, 231, 0.5);
+  --color-tomb-alt-dark-transp:rgb(88, 17, 170, 0.5);
+
+
+  --border-radius: 5px;
+  --bg-image: linear-gradient(
+    to top left,
+    var(--color-tomb-alt),
+    var(--color-tomb)
+  );
+  --bg-image-dark: linear-gradient(
+    to top left,
+    var(--color-tomb-alt-dark),
+    var(--color-tomb-dark)
+  );
+  --shadow: 0 0 10px -2px rgba(0, 0, 0, 0.3);
+  --shadow-dark: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+  --text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  --font: 2.5em;
+  --font-mobile: 1.2em;
+  --font-tablet: 1.8em;
+  --position-top: 45%;
+  /* --position-top-game: 35%; */
+  --transition: 0.5s ease all;
+}
+
+::selection {
+  background: var(--color-tomb-alt);
+  color: white;
+}
+
+body.dark ::selection {
+  background: var(--color-tomb-alt-dark);
+  color: white;
+}

@@ -1,0 +1,27 @@
+@keyframes miAnimaTomb {
+  0% {
+    transform: translateY(-420%);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(420%);
+  }
+}
+@keyframes miAnimaTitle {
+  0%{
+    color:white;
+  }
+  100%{
+    color:var(--color-tomb);
+  }
+}
+@keyframes miAnimaTitleDark {
+  0%{
+    color:white;
+  }
+  100%{
+    color:var(--color-tomb-dark);
+  }
+}

@@ -1,0 +1,146 @@
+body.dark {
+  background: #333;
+  background-image: linear-gradient(
+      335deg,
+      var(--color-tomb-alt-dark-transp) 23px,
+      transparent 23px
+    ),
+    linear-gradient(
+      155deg,
+      var(--color-tomb-dark-transp) 23px,
+      transparent 23px
+    ),
+    linear-gradient(
+      335deg,
+      var(--color-tomb-alt-dark-transp) 23px,
+      transparent 23px
+    ),
+    linear-gradient(
+      155deg,
+      var(--color-tomb-dark-transp) 23px,
+      transparent 23px
+    );
+  background-size: 58px 58px;
+  background-position: 30px 32px, 34px 65px, 59px 61px, 64px 36px;
+}
+body.dark .header {
+  background-image: var(--bg-image-dark);
+}
+body.dark .arrows{
+  background-image: var(--bg-image-dark);
+  transition: 0.5s;
+}
+body.dark .circle{
+  color:var(--color-tomb-alt-dark);
+}
+body.dark .title-tomb h1 {
+  color: white;
+}
+body.dark .play-button,
+body.dark .int-button,
+body.dark .his-button {
+  background-image: var(--bg-image-dark);
+  transition: 1s;
+}
+body.dark .play-button:hover,
+body.dark .int-button:hover,
+body.dark .his-button:hover {
+  background: #fff;
+  color: black;
+  transition: 1s;
+}
+body.dark .canvas-container {
+  background-color:white;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3), 0 0 0 1000px var(--color-tomb-dark);
+  transition: var(--transition);
+}
+body.dark .pause-container,
+body.dark .youwin-container,
+body.dark .gameover-container {
+  color: white;
+  background-color: var(--color-tomb-alt-dark-transp);
+}
+body.dark .pause-container h1,
+body.dark .youwin-container h1,
+body.dark .gameover-container h1 {
+  animation: miAnimaTitleDark 3s alternate infinite ease-in-out;
+}
+body.dark .instructions,
+body.dark .history,
+body.dark .configuration-modal {
+  background-color: black;
+  color: white;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3),
+    0 0 0 1000px var(--color-tomb-dark);
+}
+body.dark .instructions h1,
+body.dark .history h1,
+body.dark .configuration-modal h1 {
+  color: var(--color-tomb-alt-dark);
+}
+body.dark .mailto{
+  background-image: var(--bg-image-dark);
+}
+body.dark .aside,
+body.dark .aside-mode {
+  background-image: var(--bg-image-dark);
+  box-shadow: var(--shadow-dark);
+}
+body.dark .game-version {
+  color: rgba(255, 255, 255, 0.5);
+}
+body.dark .footer {
+  color: white;
+  background-image: var(--bg-image-dark);
+}
+
+.switch,
+.switch-two {
+  background-color: #343d5b;
+  border-radius: 100px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  outline: 0;
+}
+.switch-two i {
+  display:none;
+}
+.switch.active,
+.switch-two.active {
+  background-color: orange;
+  color: black;
+}
+.switch::after,
+.switch-two::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  background: white;
+  top: 0;
+  left: 0;
+  right: unset;
+  border-radius: 100px;
+  transition: 0.5s ease all;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+.switch.active::after,
+.switch-two.active::after {
+  right: 0;
+  left: unset;
+}
+.switch span,
+.switch-two span {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  background: none;
+  color: white;
+}
+.switch-two span{
+  width:60px;
+}

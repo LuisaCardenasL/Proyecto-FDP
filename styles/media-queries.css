@@ -1,0 +1,131 @@
+@media screen and (max-width:992px){
+  .configuration {
+  display:inline-block;
+  }
+  .configuration-modal p{
+    text-align:center;
+  }
+  .title-tomb h1 {
+    display:none;
+  }
+  .play-button,
+  .int-button,
+  .his-button {
+    font-size: var(--font-tablet);
+  }
+  .pause-container h1,
+  .youwin-container h1,
+  .gameover-container h1 {
+    font-size:var(--font-tablet);
+  }
+  .points,
+  .lives {
+  position: absolute;
+  padding: 10px;
+  top: var(--position-top);
+  box-shadow: var(--shadow);
+  z-index: 30;
+  }
+  .aside {
+  background-image: var(--bg-image);
+  left: 0;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.aside-mode {
+  background-image: var(--bg-image);
+  right: 0;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.points img,
+.lives img {
+  margin: 5px;
+  width: 20px;
+}
+.points span,
+.lives span {
+  font-size: 1em;
+}
+.points {
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+}
+.lives {
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+.button-main-menu-container {
+  bottom:300px;
+}
+.mobile-controls{
+  /* display: grid; */
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  position:fixed;
+  bottom:0;
+  padding:20px;
+  z-index:30;
+  box-shadow: var(--shadow);
+  background-color:white;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+.arrows{
+  font-size: var(--font-tablet);
+}
+.circle{
+  font-size:var(--font-tablet);
+}
+aside{
+    display:none;
+}
+}
+@media screen and (max-width: 576px) {
+  .play-button,
+  .int-button,
+  .his-button {
+    font-size: var(--font-mobile);
+  }
+  canvas#defaultCanvas0 {
+    height: 200px !important;
+  }
+  .pause-container h1,
+  .youwin-container h1,
+  .gameover-container h1 {
+    font-size:var(--font-mobile);
+  }
+  .instructions h1,
+  .history h1,
+  .configuration-modal h1 {
+    font-size: 15px;
+    text-align:center;
+  }
+  .instructions p,
+  .history p,
+  .configuration-modal p {
+    font-size: 10px;
+  }
+  .arrows{
+  font-size: var(--font-mobile);
+  }
+  .circle{
+  font-size:var(--font-mobile);
+  }
+  .instructions i,
+  .history i,
+  .configuration-modal i.fa-times{
+    padding-left: 9px;
+    font-size:var(--font-mobile);
+  }
+  .game-version {
+  font-size: 0.8em;
+  color: rgba(0, 0, 0, 0.5);
+  padding: 0 10px;
+  /* left: 0; */
+}
+.button-main-menu-container {
+  bottom:300px;
+}
+}
+

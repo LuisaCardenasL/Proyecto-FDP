@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="favicon.ico" />
+  <title>Kalter of the mask 👾 | Proyecto FDP 😎</title>
+  <meta name="author" content="Alexis, Johan, Luisa, Juan y Yeison" />
+  <meta name="description" content="¡Bienvenidos! 👋🏻 Este es nuestro proyecto de FDP de la Universidad del Valle.">
+  <meta name="revised" content="30/11/2020" />
+  <meta property="og:image" content="./images/meta-image.jpg">
+  <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script> <!--Iconos Fontawesome.com-->
+  <script src="./scripts/libraries/p5.js"></script> <!--Libreria P5.js-->
+  <link rel="stylesheet" href="./styles/normalize.css"> <!--Resetear estilos por defecto del HTML-->
+  <link rel="stylesheet" href="./styles/fontface.css"> <!-- Fuente Atari -->
+  <link rel="stylesheet" href="./styles/main.css"> <!--Variables CSS y configuraciones-->
+  <link rel="stylesheet" href="./styles/style.css"> <!--Estilos del juego-->
+  <link rel="stylesheet" href="./styles/style-dark.css"> <!--Estilos del juego modo oscuro-->
+  <link rel="stylesheet" href="./styles/media-queries.css"> <!-- Juego responsive -->
+  <link rel="stylesheet" href="./styles/animations.css"> <!-- Animaciones -->
+</head>
+<body>
+  <header id="header" class="header">
+    <div id="div-audio" class="div-audio">
+      <audio id="audio" class="audio" src="./audios/crystalNocturne.mp3" autoplay loop></audio>
+      <audio id="audio-two" class="audio-two" src="./audios/groovyTraps.mp3" loop></audio>
+      <button id="play-audio" class="play"><i class="fas fa-play"></i></button>
+      <button id="pause-audio" class="pause"><i class="fas fa-pause"></i></button>
+      <button id="play-audio-two" class="play" style="display:none"><i class="fas fa-play"></i></button>
+      <button id="pause-audio-two" class="pause" style="display:none"><i class="fas fa-pause"></i></button>
+      <button id="configuration" class="configuration"><i class="fas fa-tools"></i></i></button>
+    </div>
+  </header>
+  <main id="main" class="main">
+    <div id="title-tomb" class="title-tomb">
+      <h1><i class="fas fa-skull-crossbones"></i> KALTER OF THE MASK <i class="fas fa-dungeon"></i></h1>
+    </div>
+    <div id="buttons-container" class="buttons-container">
+      <button id="play-button" class="play-button">Jugar</button>
+      <button id="his-button" class="his-button">Historia</button>
+      <button id="int-button" class="int-button">Instrucciones</button>
+    </div>
+
+    <div style="display:none" id="history" class="history">
+      <div>
+        <h1>Historia</h1>
+        <p>Una perversa doctora libera un gas que afecta el sistema nervioso de las personas que lo inhalan
+          haciéndolas susceptible a sus órdenes. La misión de Kalter es recolectar orbes para poder crear
+          un antídoto y así poder acabar con el reinado de la Dra. Viper. Pero la misión de nuestra heroína
+          no será tan fácil, ya que en su camino encontrará múltiples obstáculos puestos por la Dra. Viper
+          y sus secuaces.</p>
+        <i class="fas fa-times" id="close-two"></i>
+      </div>
+    </div>
+
+    <div style="display:none" id="instructions" class="instructions">
+      <div>
+        <h1>Instrucciones</h1>
+        <p>Usa las flechas de tu teclado en cualquier dirección y tu personaje se moverá en esta dirección
+          hasta chocar con una pared. El juego está diseñado con una serie de laberintos que deberás
+          recorrer para llegar a la meta, a medida que avanzas te podrás encontrar con objetos que te
+          ayudarán a salvarte o por el contrario te podrías topar con trampas de gases, y otros peligros que
+          deberás evitar para mantenerte con vida. Por esta razón debes estar pendiente hacia donde te
+          diriges para que puedas completar cada prueba en tiempo récord y fijar puntuaciones altas en
+          cada nivel.</p>
+        <i class="fas fa-times" id="close"></i>
+      </div>
+    </div>
+
+    <div style="display:none" id="configuration-modal" class="configuration-modal">
+      <div>
+        <h1>Configuración</h1>
+        <p>Modo oscuro/claro</p>
+        <div class="container-mode-mobile">
+          <button id="switch-two" class="switch-two">
+            <span></span>
+		      </button>
+        </div>
+        <p>Envianos un correo</p>
+        <div class="container-mailto">
+          <a class="mailto" href="mailto:cardenas.luisa@correounivalle.edu.co,loaiza.johan@correounivalle.edu.co,juan.pablo.pantoja@correounivalle.edu.co,sebastian.cespedes@correounivalle.edu.co,yeison.ponce@correounivalle.edu.co?subject=Proyecto%20FDP%20%F0%9F%98%8D&body=Tu%20mensaje%20aqu%C3%AD%20%F0%9F%99%82"><i class="far fa-envelope"></i></a>
+        </div>
+        <i class="fas fa-times" id="close-three"></i>
+      </div>
+    </div>
+    <div id="canvas-container" class="canvas-container" style="display:none">
+      <div id="sketch-holder">
+        <!-- Nuestro canvas para el juego estara justo debajo de este comentario -->
+      </div>
+      <div id="pause-container" class="pause-container" style="display:none">
+        <h1><i class="fas fa-gamepad"></i> Pausa <i class="far fa-pause-circle"></i></h1>
+      </div>
+      <div id="gameover-container" class="gameover-container" style="display:none">
+        <h1><i class="fas fa-heart-broken"></i> Perdiste <i class="far fa-sad-tear"></i></h1>
+        <p>Obtuviste <span class="point-text-two" id="point-text-two">0</span> <i class="fas fa-coins"></i></p>
+        <a id="reload" class="reload" href="javascript:location.reload()">Menú</a>
+      </div>
+      <div id="youwin-container" class="youwin-container" style="display:none">
+        <h1><i class="fas fa-trophy"></i> Ganaste <i class="far fa-laugh-wink"></i></h1>
+        <p>Obtuviste <span class="point-text-three" id="point-text-three">0</span> <i class="fas fa-coins"></i> con <span class="live-text-two" id="live-text-two">3</span> <i class="fas fa-heart"></i></p>
+        <a id="reload" class="reload" href="javascript:location.reload()">Menú</a>
+      </div>
+    </div>
+    <div class="button-main-menu-container" id="button-main-menu-container" style="display:none">
+      <button id="main-menu" class="main-menu">Menú</button>
+      <button id="play-game" class="play-game">Jugar</button>
+      <button id="pause-game" class="pause-game">Pausar</button>
+    </div>
+    <div id="mobile-controls" class="mobile-controls" style="display:none">
+      <div></div>
+      <button id="go-up" class="arrows go-up"><i class="fas fa-arrow-up"></i></button>
+      <div></div>
+      <button id="go-left" class="arrows go-left"><i class="fas fa-arrow-left"></i></button>
+      <div class="circle"><i class="far fa-circle"></i></div>
+      <button id="go-right" class="arrows go-right"><i class="fas fa-arrow-right"></i></button>
+      <div></div>
+      <button id="go-down" class="arrows go-down"><i class="fas fa-arrow-down"></i></button>
+      <div></div>
+    </div>
+    <div id="points" class="points" style="display:none">
+      <span class="point-text" id="point-text">0</span>
+      <img src="./images/points.svg" alt="">
+    </div>
+    <div id="lives" class="lives" style="display:none">
+      <span class="live-text" id="live-text">3</span>
+      <img src="./images/lives.svg" alt="">
+    </div>
+    <div class="game-version" id="game-version">
+      <p>RC 1.3.9</p>
+    </div>
+  </main>
+  <aside id="aside" class="aside">
+    <a href="mailto:cardenas.luisa@correounivalle.edu.co,loaiza.johan@correounivalle.edu.co,juan.pablo.pantoja@correounivalle.edu.co,sebastian.cespedes@correounivalle.edu.co,yeison.ponce@correounivalle.edu.co?subject=Proyecto%20FDP%20%F0%9F%98%8D&body=Tu%20mensaje%20aqu%C3%AD%20%F0%9F%99%82">
+      <i class="far fa-envelope"></i>
+    </a>
+  </aside>
+  <aside id="aside-mode" class="aside-mode">
+    <button id="switch" class="switch">
+			<span><i class="fas fa-sun"></i></span>
+			<span><i class="fas fa-moon"></i></span>
+		</button>
+  </aside>
+  <footer id="footer" class="footer">
+    <p>Integrantes: Alexis, Johan, Luisa, Juan y Yeison.</p>
+  </footer>
+
+  <script src="./scripts/main.js"></script> <!--Funciones del setup(), draw(), keyPressed(), entre otras -->
+  <script src="./scripts/wall.js"></script> <!--Función para dibujar pared-->
+  <script src="./scripts/platform.js"></script> <!--Estructura de la plataforma/mundo-->
+  <script src="./scripts/comida.js"></script> <!--Función para la comida-->
+  <script src="./scripts/pointsAndLives.js"></script> <!--Funciones para las vidas y puntos-->
+  <script src="./scripts/powerup.js"></script> <!--Función para el powerup-->
+  <script src="./scripts/tomb.js"></script> <!--Función para el tomb-->
+  <script src="./scripts/skull.js"></script> <!--Función para el skull-->
+  <script src="./scripts/aqua.js"></script> <!--Función para el aqua-->
+
+  <script src="./scripts/buttons.js"></script> <!--Eventos para los botones-->
+  <script src="./scripts/buttonsMobile.js"></script> <!--Eventos para los botones en el movil-->
+  <!--   <script src="./scripts/preventDefault.js"></script>   --> <!--Eventos de clic -->
+  <script src="./scripts/darkMode.js"></script> <!--Event-listener para modo oscuro-->
+</body>
+</html>
